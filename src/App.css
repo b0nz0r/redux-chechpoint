@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=K2D:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
+
+* {
+  font-size: large;
+  font-family: "K2D", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7b84ff;
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9299ff;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+body {
+  margin: 0;
+}
+.App {
+  min-height: 100vh;
+  background-image: radial-gradient(
+    circle,
+    #12008e,
+    #000a74,
+    #000d5a,
+    #000a40,
+    #050027
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Logo {
+  position: absolute;
+  top: 0;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 40px;
+  color: white;
+  margin: 0;
+  filter: drop-shadow(2px 2px 10px rgba(8, 8, 8, 0.733));
+}
+.MainContainer {
+  width: 550px;
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-sizing: border-box;
+  transition: height 0.3s;
+}
+.AddTask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AddTask input {
+  border-radius: 10px 0 0 10px;
+  width: 60%;
+}
+.AddTask input::placeholder {
+  color: #dddddd;
+}
+.AddTask button {
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+.AddTask input,
+.AddTask button {
+  color: #7b84ff;
+  background-color: #000a40;
+  border: 2px solid #7b84ff;
+  padding: 5px 15px;
+  transition: ackground-color 0.4s;
+  outline: none;
+}
+.AddTask input:hover {
+  border-color: #4a4dff;
+}
+.AddTask button:hover {
+  background-color: #000a74;
+  border-color: #7b84ff;
+}
+.AddTask input:focus {
+  border-color: #7b84ff;
+  box-shadow: 0 0 10px rgba(123, 132, 255, 0.5);
+}
+.AddTask button:active {
+  background-color: #000d5a;
+  border-color: #9299ff;
+}
+.Filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  border-radius: 50px;
+}
+.ListTask {
+  height: 65%;
+  border: 1px lightgray solid;
+  margin: 30px auto 0 auto;
+  padding-bottom: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: height 0.3s;
+}
+.ListTaskWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+#noTasksMsg {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+.Task {
+  width: 97%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px rgba(196, 196, 196, 0.658) solid;
+  border-radius: 10px;
+  margin: 5px auto 5px 2%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  
+}
+.Task:hover {
+  box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
+    0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+}
+.edit-task {
+  all: unset;
+  width: 55%;
+  margin: 15.5px;
+  border-bottom: 1px white solid;
+  box-shadow: 0 -20px 20px -20px rgba(255, 255, 255, 0.24) inset;
+  accent-color: rgba(69, 153, 0, 0.925);
+}
+.Task abbr {
+  max-width: 70%;
+  text-decoration: none;
+}
+.Task abbr h5 {
+  margin: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.controls {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: width 0.3s;
+}
+.editing {
+  justify-content: right;
+}
+.controls input {
+  width: 26px;
+  height: 14px;
+  transform: scale(1.9);
+  margin: auto 5px;
+}
+.controls button {
+  all: unset;
+  height: fit-content;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  filter: drop-shadow(0 0 0 white);
+  transition: filter 0.2s;
+}
+.controls button:hover {
+  filter: drop-shadow(0 0 15px white);
+}
+
+@media screen and (max-width: 600px) {
+  .MainContainer {
+    width: 80vw;
+    margin: 10px;
+  }
+  .AddTask input {
+    width: 45%;
+  }
+  .AddTask input,
+  .AddTask button {
+    font-size: 15px;
+  }
+  .Filter {
+    gap: 5%;
+  }
+  .ListTask {
+    margin: 0 auto 0 auto;
+  }
+  .edit-task {
+    width: 45%;
+  }
+  .Task abbr{
+    width: 60%;
+  }
+  .Task abbr h5 {
+  margin: 16px;
+  white-space: wrap;
+  overflow:inherit;
+  text-overflow:unset;
+}
+  .controls {
+    width: 30px;
+    flex-direction:column-reverse;
+    margin: 10px;
+  }
+   .controls input {
+    margin: 0;
+   }
+}
+@media screen and (max-width: 420px) {
+  .MainContainer {
+    height: 85vh;
+  }
+  .AddTask {
+    flex-direction: column;
+  }
+  .AddTask input {
+    width: 90%;
+    border-radius: 10px;
+  }
+  .AddTask button {
+    border-radius: 0 0 10px 10px;
+  }
+  .AddTask input::placeholder {
+    text-align: center;
+  }
+  .AddTask input {
+    text-align: center;
+  }
+  .Filter h3 {
+    flex: 0 0 100%;
+    margin: 5px 0 0 0;
+    text-align: center;
+  }
+  .Filter label {
+    margin: 0 0 10px 0;
+  }
+   .Task abbr{
+    width: 70%;
+  }
+    .controls {
+      margin: 10px 0;
+    }
+  .controls svg {
+    width: 20px;
+    height: 20px;
+  }
+  .controls input {
+    width: 20px;
+    transform: scale(1.5);
+    
+  }
+}
